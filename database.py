@@ -13,17 +13,34 @@ database.append(vehicle("Toyota", "Prius", "2010", "134"))
 database.append(vehicle("Honda", "Odyssey", "2007", "248"))
 database.append(vehicle("Honda", "Civic","2009","139"))
 
-for y in range(1,len(database)+1):
-  print("%s %s" %(database[y-1].make, y))
-x = input("Which vehicle do you want?")
-z = raw_input("Information Selection")
-if 'all' in z:
-  print("The %s %s %s has %s horsepower." %(database[x-1].year, database[x-1].make, database[x-1].model, database[x-1].hp))
-if 'make' in z:
-  print("Make: %s" %database[x-1].make)
-if 'model' in z:
-  print("Model: %s" %database[x-1].model)
-if 'year' in z:
-  print("Year: %s" %database[x-1].year)
-if 'hp' in z:
-  print("Horsepower: %s" %database[x-1].hp)
+def add():
+  c = raw_input("Enter make") 
+  d = raw_input("Enter model")
+  e = raw_input("Enter year")
+  f = raw_input("Enter HP")
+  database.append(vehicle(c, d, e, f)) 
+
+def call():
+  for y in range(1,len(database)+1):
+    print("%s %s" %(database[y-1].make, y))
+  x = input("Which vehicle do you want?")
+  z = raw_input("Information Selection")
+  if 'all' in z:
+    print("The %s %s %s has %s horsepower." %(database[x-1].year, database[x-1].make, database[x-1].model, database[x-1].hp))
+  if 'make' in z:
+    print("Make: %s" %database[x-1].make)
+  if 'model' in z:
+    print("Model: %s" %database[x-1].model)
+  if 'year' in z:
+    print("Year: %s" %database[x-1].year)
+  if 'hp' in z:
+    print("Horsepower: %s" %database[x-1].hp)
+    
+b = raw_input("Do you want to add or recall?")
+if b == 'add':
+  add()
+  call()
+elif b == 'recall':
+  call()
+else:
+  print("Invalid")
